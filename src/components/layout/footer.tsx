@@ -8,7 +8,6 @@ export function Footer() {
         <Separator className="mb-8" />
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
           <p>&copy; {new Date().getFullYear()} {personalInfo.name}</p>
-          <p>Built with Next.js &amp; Tailwind CSS</p>
         </div>
       </div>
     </footer>

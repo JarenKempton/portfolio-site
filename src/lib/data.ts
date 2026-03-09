@@ -4,9 +4,9 @@ import { LucideIcon } from "lucide-react";
 export const personalInfo = {
  name: "Jaren Kempton",
  title: "Full Stack Developer",
- email: "me@jarenkempton.dev",
+ email: "hello@jarenkempton.dev",
  github: "https://github.com/jarenkempton",
- linkedin: "https://www.linkedin.com/in/jaren-kempton-70935b39a/",
+ linkedin: "https://www.linkedin.com/in/jaren-kempton/",
  resumeUrl: "/resume.pdf",
  location: "Queen Creek, AZ",
 } as const;
