@@ -1,9 +1,8 @@
-import { LucideIcon } from "lucide-react";
-
 // ── Personal Info ──────────────────────────────────────────────
 export const personalInfo = {
  name: "Jaren Kempton",
- title: "Full Stack Developer",
+ title: "Senior Full Stack Engineer, Developer Platform / AI Tooling",
+ tagline: "Building the systems that let AI expand what a team can ship, quickly and safely.",
  email: "hello@jarenkempton.dev",
  github: "https://github.com/jarenkempton",
  linkedin: "https://www.linkedin.com/in/jaren-kempton/",
@@ -12,7 +11,7 @@ export const personalInfo = {
 } as const;
 
 export const aboutBio =
- "I'm a full stack developer who genuinely enjoys understanding how things work under the hood. Whether it's a new framework, a tricky bug, or an entirely unfamiliar problem — I like digging in and figuring it out. Most of my work comes down to finding ways to simplify things and make people's lives a little easier, whether that's through the tools I build or the code I write.";
+ "I'm a full stack engineer who builds the systems that let AI expand what a team can ship, quickly and safely. Lately that means owning architecture and MCP tooling for an AI-assisted product pipeline, encoding conventions into CI so agent-written code lands close to the target design, and running a company knowledge service that serves docs, code, Jira and metrics to AI agents. I genuinely enjoy understanding how things work under the hood, and most of my work comes down to simplifying things and making people's lives a little easier.";
 
 export const stats = [
  { label: "Years Experience", value: "3+" },
@@ -32,45 +31,43 @@ export interface Experience {
 
 export const experiences: Experience[] = [
  {
-  title: "Engineer Intern",
-  company: "SalesAi",
-  period: "Feb 2026 — Present",
+  title: "Technical Consultant (Part-time)",
+  company: "Symphosize",
+  period: "Jun 2026 — Present",
   description:
-   "Working to make AI more accessible to businesses. Contributing to full-stack development of AI-powered tools that help businesses work smarter and close deals faster.",
-  tech: [],
+   "Interviewed everyone in product and engineering to map friction in the product pipeline, then drafted solutions and drove them into general adoption. Own architecture and the MCP layer for the resulting pipeline app, consolidating 5 backend layers into 1 and deleting 60k+ lines, with CI-enforced conventions so AI-assisted work lands close to the target design at ~20 merged PRs a day. Own the company knowledge service: cut search p95 4x, then designed a BM25 + vector + Jev reranking pipeline benchmarked at ~70% better ranking on held-out real queries.",
+  tech: ["TypeScript", "Hono", "PostgreSQL", "MCP", "Jev", "GitHub Actions", "Vercel"],
   current: true,
+ },
+ {
+  title: "Full Stack Developer",
+  company: "SalesAi",
+  period: "Feb 2026 — Oct 2026",
+  description:
+   "Built the shared React component library for all frontend apps, kept in sync with the design team's Figma system. Hardened credential storage across 3 services and every environment with zero downtime. Expanded a voice-only sales platform to SMS for every customer and added Commio as a second phone provider.",
+  tech: ["React", "Next.js", "TypeScript", "Storybook", "Figma", "Datadog"],
   url: "https://salesai.com"
  },
  {
-  title: "Founder & Developer",
-  company: "Stride",
-  period: "Nov 2025 — Present",
+  title: "Missionary · Technology Specialist",
+  company: "The Church of Jesus Christ of Latter-day Saints",
+  period: "Oct 2023 — Oct 2025",
   description:
-   "Building an intelligent task management platform from the ground up. Designed and developed the full-stack architecture using Tauri for a native desktop experience with React, real-time sync via PowerSync and Supabase, and ML-powered team analytics.",
-  tech: ["React", "Tailwind", "Tauri", "TypeScript", "Drizzle", "Supabase", "PostgreSQL"],
-  current: true,
-  url: "https://stridetime.app"
- },
- {
-  title: "Mission Technology Specialist",
-  company: "Volunteer",
-  period: "Sep 2024 — Oct 2025",
-  description:
-   "Learned Rust and contributed to mission statistics software parsing 1,000+ records weekly. Built a centralized automation system in Apps Script replacing manual processing of 100+ weekly emails. Served as primary tech support for 150+ volunteers.",
+   "Served as Technology Specialist from Sep 2024. Learned Rust and maintained mission statistics software analyzing 1,000+ records weekly. Automated processing of 100+ weekly emails and texts with Google Apps Script. Served as primary tech support for 150+ volunteers.",
   tech: ["Rust", "Google Apps Script"],
  },
  {
   title: "Junior Developer",
-  company: "ResponsiBid",
+  company: "Symphosize",
   period: "May 2022 — Oct 2023",
   description:
-   "Built and maintained customer-facing features in Next.js and React. Refactored legacy components into modern patterns, helped introduce TDD practices going from 0 to 24% coverage in a 1.2M line codebase, and implemented GraphQL API integrations using NestJS.",
+   "Worked heavily in the legacy PHP (CakePHP) platform while helping build its TypeScript replacement in React/Next.js and NestJS GraphQL. Helped introduce TDD in an Agile team, raising test coverage in a 1.2M-line codebase from 0% to 24%.",
   tech: ["Next.js", "React", "NestJS", "Jest", "Prisma", "GraphQL", "TypeScript", "GitHub", "Jira"],
   url: "https://responsibid.com"
 },
  {
-  title: "Software Engineering Intern",
-  company: "ResponsiBid",
+  title: "Developer Intern",
+  company: "Symphosize",
   period: "May 2021 — Jul 2021",
   description:
    "Worked on a large legacy CakePHP application, fixing bugs and contributing to incremental feature updates. Improved code readability and documentation across multiple modules.",
@@ -86,23 +83,6 @@ export const experiences: Experience[] = [
   tech: ["JavaScript", "HTML/CSS", "Python", "Java", "Arduino", "C++"],
 },
 ];
-
-// ── Stride Showcase ────────────────────────────────────────────
-export interface StrideFeature {
- icon: LucideIcon;
- title: string;
- description: string;
-}
-
-export const strideInfo = {
- name: "Stride",
- tagline: "Master your productivity.",
- description:
-  "Stride is an intelligent task management system that helps teams and individuals achieve their goals with precision and clarity. Featuring personal analytics, focus tools, and ML-powered team insights — all in one platform.",
- url: "https://stridetime.app",
- github: "https://github.com/orgs/StrideTime",
- tech: ["React", "Tauri", "TypeScript", "Drizzle", "PowerSync", "Supabase", "PostgreSQL", "SQLite"],
-} as const;
 
 // ── Other Projects ─────────────────────────────────────────────
 export interface Project {
@@ -140,50 +120,27 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
  {
-  name: "Frontend",
-  skills: [
-   "React",
-   "Next.js",
-   "JavaScript",
-   "TypeScript",
-   "HTML",
-   "CSS",
-   "Tailwind CSS",
-   "MUI",
-   "shadcn/ui",
-   "Chakra UI",
-   "React Hook Form",
-  ],
+  name: "AI & Agent Tooling",
+  skills: ["Claude Code", "Hermes", "MCP servers", "Jev", "Agent guardrails", "Hybrid RAG"],
+ },
+ {
+  name: "Developer Platform",
+  skills: ["GitHub Actions", "CI/CD gating", "Playwright", "Vitest", "Docker", "Sentry", "Datadog"],
  },
  {
   name: "Backend",
-  skills: [
-   "Express",
-   "NestJS",
-   "Drizzle",
-   "Prisma",
-   "MySQL",
-   "PostgreSQL",
-   "SQLite",
-   "Supabase",
-   "PowerSync",
-   "ElectricSQL",
-  ],
+  skills: ["TypeScript", "Node.js", "Hono", "NestJS", "PostgreSQL", "Supabase", "Drizzle", "tRPC"],
  },
  {
-  name: "Tools & DevOps",
-  skills: ["Git", "GitHub", "Jira", "Docker", "Vercel", "REST APIs", "GraphQL"],
- },
- {
-  name: "Practices",
-  skills: ["Debugging", "Agile Workflows", "Problem-Solving", "TDD"],
+  name: "Frontend",
+  skills: ["React", "Next.js", "Tailwind CSS", "Base UI", "MUI", "Storybook"],
  },
 ];
 
 // ── Navigation ─────────────────────────────────────────────────
 export const navLinks = [
  { label: "About", href: "#about" },
- { label: "Projects", href: "#stride" },
+ { label: "Projects", href: "#projects" },
  { label: "Experience", href: "#experience" },
  { label: "Skills", href: "#skills" },
  { label: "Contact", href: "#contact" },

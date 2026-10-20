@@ -40,9 +40,18 @@ import {
   SiShadcnui,
   SiChakraui,
   SiReacthookform,
+  SiGithubactions,
+  SiHono,
+  SiStorybook,
+  SiClaude,
+  SiVitest,
+  SiSentry,
+  SiDatadog,
+  SiTrpc,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 import { type IconType } from "react-icons";
+import { Component, DatabaseZap, Drama, Feather, GitPullRequestArrow, Layers, Plug, ShieldCheck } from "lucide-react";
 
 interface TechIconEntry {
   icon: IconType;
@@ -93,6 +102,24 @@ const techIconMap: Record<string, TechIconEntry> = {
   "shadcn/ui":           { icon: SiShadcnui,            color: "#ffffff" },
   "Chakra UI":           { icon: SiChakraui,            color: "#319795" },
   "React Hook Form":     { icon: SiReacthookform,       color: "#EC5990" },
+  "Tailwind":            { icon: SiTailwindcss,         color: "#06B6D4" },
+  "GitHub Actions":      { icon: SiGithubactions,       color: "#2088FF" },
+  "Hono":                { icon: SiHono,                color: "#E36002" },
+  "Storybook":           { icon: SiStorybook,           color: "#FF4785" },
+  "MCP":                 { icon: Plug as IconType,      color: "#D97757" },
+  "MCP servers":         { icon: Plug as IconType,      color: "#D97757" },
+  "Jev":                 { icon: Layers as IconType,    color: "#A78BFA" },
+  "Claude Code":         { icon: SiClaude,              color: "#D97757" },
+  "Hermes":              { icon: Feather as IconType,   color: "#E5C07B" },
+  "Agent guardrails":    { icon: ShieldCheck as IconType, color: "#34D399" },
+  "Hybrid RAG":          { icon: DatabaseZap as IconType, color: "#60A5FA" },
+  "CI/CD gating":        { icon: GitPullRequestArrow as IconType, color: "#2088FF" },
+  "Playwright":          { icon: Drama as IconType,     color: "#2EAD33" },
+  "Vitest":              { icon: SiVitest,              color: "#6E9F18" },
+  "Sentry":              { icon: SiSentry,              color: "#A78BFA" },
+  "Datadog":             { icon: SiDatadog,             color: "#9B6BDE" },
+  "tRPC":                { icon: SiTrpc,                color: "#398CCB" },
+  "Base UI":             { icon: Component as IconType, color: "#ffffff" },
 };
 
 // Custom SVG icons for brands not in react-icons
