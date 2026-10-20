@@ -18,7 +18,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-6 inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-2 text-base font-semibold tracking-wide text-purple-300 backdrop-blur-sm"
         >
-          Full Stack Developer
+          {personalInfo.title}
         </motion.div>
 
         <motion.h1
@@ -36,7 +36,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mb-10 max-w-lg text-lg text-muted-foreground sm:text-xl"
         >
-          Building modern web experiences with clean code and thoughtful design.
+          {personalInfo.tagline}
         </motion.p>
 
         <motion.div
