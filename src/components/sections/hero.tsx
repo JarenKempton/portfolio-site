@@ -46,7 +46,7 @@ export function Hero() {
           className="flex items-center justify-center gap-4"
         >
           <Button asChild size="lg" className="rounded-full px-6">
-            <a href="#stride">View My Work</a>
+            <a href="#projects">View My Work</a>
           </Button>
           <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
             <a href="#contact">Get in Touch</a>

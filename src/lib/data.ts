@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 // ── Personal Info ──────────────────────────────────────────────
 export const personalInfo = {
  name: "Jaren Kempton",
@@ -51,16 +49,6 @@ export const experiences: Experience[] = [
   url: "https://salesai.com"
  },
  {
-  title: "Founder & Developer",
-  company: "Stride",
-  period: "Nov 2025 — Present",
-  description:
-   "Building an intelligent task management platform from the ground up. Designed and developed the full-stack architecture using Tauri for a native desktop experience with React, real-time sync via PowerSync and Supabase, and ML-powered team analytics.",
-  tech: ["React", "Tailwind", "Tauri", "TypeScript", "Drizzle", "Supabase", "PostgreSQL"],
-  current: true,
-  url: "https://stridetime.app"
- },
- {
   title: "Missionary · Technology Specialist",
   company: "The Church of Jesus Christ of Latter-day Saints",
   period: "Oct 2023 — Oct 2025",
@@ -95,23 +83,6 @@ export const experiences: Experience[] = [
   tech: ["JavaScript", "HTML/CSS", "Python", "Java", "Arduino", "C++"],
 },
 ];
-
-// ── Stride Showcase ────────────────────────────────────────────
-export interface StrideFeature {
- icon: LucideIcon;
- title: string;
- description: string;
-}
-
-export const strideInfo = {
- name: "Stride",
- tagline: "Master your productivity.",
- description:
-  "Stride is an intelligent task management system that helps teams and individuals achieve their goals with precision and clarity. Featuring personal analytics, focus tools, and ML-powered team insights — all in one platform.",
- url: "https://stridetime.app",
- github: "https://github.com/orgs/StrideTime",
- tech: ["React", "Tauri", "TypeScript", "Drizzle", "PowerSync", "Supabase", "PostgreSQL", "SQLite"],
-} as const;
 
 // ── Other Projects ─────────────────────────────────────────────
 export interface Project {
@@ -169,7 +140,7 @@ export const skillCategories: SkillCategory[] = [
 // ── Navigation ─────────────────────────────────────────────────
 export const navLinks = [
  { label: "About", href: "#about" },
- { label: "Projects", href: "#stride" },
+ { label: "Projects", href: "#projects" },
  { label: "Experience", href: "#experience" },
  { label: "Skills", href: "#skills" },
  { label: "Contact", href: "#contact" },

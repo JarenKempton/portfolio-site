@@ -4,7 +4,6 @@ import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { aboutBio, stats } from "@/lib/data";
-import { GraduationCap } from "lucide-react";
 
 export function About() {
   return (
@@ -52,20 +51,6 @@ export function About() {
                   </div>
                 </div>
               ))}
-              <div
-                className="card-glow flex flex-1 items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm"
-                style={{ minWidth: "140px" }}
-              >
-                <GraduationCap className="size-6 shrink-0 text-purple-400" />
-                <div>
-                  <div className="text-sm font-semibold text-foreground">
-                    Computer Science
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Pursuing B.S. Degree
-                  </div>
-                </div>
-              </div>
             </div>
           </AnimatedSection>
         </div>

@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "TypeScript",
-    "Stride",
   ],
   openGraph: {
     title: "Jaren Kempton | Senior Full Stack Engineer, Developer Platform / AI Tooling",

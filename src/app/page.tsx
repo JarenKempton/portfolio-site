@@ -2,7 +2,6 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
-import { StrideShowcase } from "@/components/sections/stride-showcase";
 import { Projects } from "@/components/sections/projects";
 import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
@@ -15,7 +14,6 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <StrideShowcase />
         <Projects />
         <Experience />
         <Skills />
