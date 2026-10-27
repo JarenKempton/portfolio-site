@@ -33,7 +33,6 @@ export function Tabline({ active }: { active: number }) {
             {i === active && "*"}
           </a>
         ))}
-        <span className="ml-auto hidden shrink-0 px-3 text-muted md:block">jarenkempton.dev</span>
       </nav>
     </header>
   );

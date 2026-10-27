@@ -15,6 +15,7 @@ const links = [
 export function Contact() {
   return (
     <Section id="contact" label="Contact" cmd="cat contact.txt">
+      <p className="mb-4 font-bold text-blue"># Say hello</p>
       <dl data-nav tabIndex={-1} className="max-w-[72ch] border border-line px-4 py-3 sm:px-5">
         {links.map((link) => (
           <div key={link.key} className="grid grid-cols-[9ch_1fr] py-0.5">
@@ -32,8 +33,11 @@ export function Contact() {
       <p className="mt-8">
         <Prompt cursor />
       </p>
-      <p className="mt-10 text-sm text-muted">
-        &copy; {new Date().getFullYear()} {personalInfo.name}
+      <p className="mt-10 flex flex-wrap gap-x-2 text-sm text-muted">
+        <span>
+          &copy; {new Date().getFullYear()} {personalInfo.name}
+        </span>
+        <span>· thanks for stopping by</span>
       </p>
     </Section>
   );

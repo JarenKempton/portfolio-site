@@ -35,6 +35,12 @@ export const principles = [
   },
 ] as const;
 
+export const offTheClock = [
+  "I clock in by flipping a physical switch on my desk. An ESP32 behind it tells my dashboard which company I'm working for.",
+  "The house runs on Home Assistant, with ESPHome sensor nodes and dashboard cards I wrote when the stock ones didn't do what I wanted.",
+  "I daily-drive Linux on Omarchy, so I'm writing a native desktop client to get iMessage on it.",
+];
+
 export interface Role {
   title: string;
   period: string;
