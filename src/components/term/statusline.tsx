@@ -2,7 +2,7 @@ import { termSections } from "@/lib/sections";
 
 const hints = [
   ["j/k", "move"],
-  ["1-5", "jump"],
+  [`1-${termSections.length - 1}`, "jump"],
   ["g/G", "top/end"],
   ["⏎", "open"],
 ];

@@ -20,10 +20,19 @@ export const aboutBio = [
   "Outside of work I build small local-first tools for things that bug me, like where my AI usage goes, what my coding agents load, and a switch on my desk that clocks me in.",
 ];
 
-export const stats = [
-  { value: "60k+", label: "lines deleted consolidating 5 backend layers into 1" },
-  { value: "4×", label: "faster p95 on a company knowledge search" },
-  { value: "0 → 24%", label: "test coverage in a 1.2M-line codebase" },
+export const principles = [
+  {
+    title: "Boring on purpose",
+    body: "Simple designs that do exactly what you expect. If it needs a diagram to explain, it isn't finished.",
+  },
+  {
+    title: "Use what already exists",
+    body: "Most problems already have a good tool. I'd rather wire the existing one up well than rebuild it worse.",
+  },
+  {
+    title: "Throwaway code, bombproof product",
+    body: "Agents are great at writing long-running evals and test harnesses nobody ships. That temporary code is how the code that does ship gets to be boring.",
+  },
 ] as const;
 
 export interface Role {
