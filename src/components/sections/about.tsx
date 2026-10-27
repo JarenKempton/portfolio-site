@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { aboutBio, principles } from "@/lib/data";
+import { aboutBio, offTheClock, principles } from "@/lib/data";
 
 export function About() {
   return (
@@ -53,6 +53,15 @@ export function About() {
                 </div>
               ))}
             </div>
+
+            <h3 className="mb-3 mt-10 text-sm font-semibold uppercase tracking-wider text-primary/80">
+              Off the clock
+            </h3>
+            <ul className="list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground">
+              {offTheClock.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </AnimatedSection>
         </div>
       </div>
