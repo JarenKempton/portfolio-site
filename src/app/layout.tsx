@@ -9,21 +9,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Jaren Kempton | Full Stack Developer",
+  title: "Jaren Kempton | Senior Full Stack Engineer",
   description:
-    "Full stack developer specializing in modern web applications. Creator of Stride, an intelligent productivity platform.",
+    "Senior full stack engineer working on developer platforms and AI tooling: MCP servers, retrieval, and CI guardrails for AI-assisted codebases.",
   keywords: [
     "Jaren Kempton",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
+    "Full Stack Engineer",
+    "Developer Platform",
+    "AI Tooling",
+    "MCP",
     "TypeScript",
-    "Stride",
   ],
   openGraph: {
-    title: "Jaren Kempton | Full Stack Developer",
+    title: "Jaren Kempton | Senior Full Stack Engineer",
     description:
-      "Full stack developer specializing in modern web applications.",
+      "Developer platforms and AI tooling: MCP servers, retrieval, and CI guardrails for AI-assisted codebases.",
     type: "website",
     url: "https://jarenkempton.dev",
   },

@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jarenkempton.dev
 
-## Getting Started
-
-First, run the development server:
+Personal site. Next.js 16, Tailwind 4, framer-motion.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All copy lives in `src/lib/`; components only render it.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| File | What's in it |
+| --- | --- |
+| `src/lib/projects.ts` | Projects |
+| `src/lib/data.ts` | Name, links, bio, stats, experience, skills, nav |
+| `public/resume.pdf` | Export of the resume Google Doc |
 
-## Learn More
+### Adding a project
 
-To learn more about Next.js, take a look at the following resources:
+Append an entry to `projects` in `src/lib/projects.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```ts
+{
+  slug: "my-thing",
+  title: "My Thing",
+  tagline: "One line on what it does.",
+  description: "Two or three sentences on how it works and why it exists.",
+  tech: ["TypeScript", "SQLite"],
+  year: 2026,
+  status: "Active",
+  github: "https://github.com/JarenKempton/my-thing",
+  featured: true,
+},
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`featured: true` puts it in the main grid; leave it off to list it under "More projects". `url` and `github` are optional, so omit them for private work. Tech names with an icon in `src/components/shared/tech-icon.tsx` get one; any other name renders as plain text.

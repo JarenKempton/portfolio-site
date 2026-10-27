@@ -18,7 +18,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-6 inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-2 text-base font-semibold tracking-wide text-purple-300 backdrop-blur-sm"
         >
-          Full Stack Developer
+          {personalInfo.focus}
         </motion.div>
 
         <motion.h1
@@ -34,9 +34,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mx-auto mb-10 max-w-lg text-lg text-muted-foreground sm:text-xl"
+          className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground sm:text-xl"
         >
-          Building modern web experiences with clean code and thoughtful design.
+          {personalInfo.tagline}
         </motion.p>
 
         <motion.div
@@ -46,7 +46,7 @@ export function Hero() {
           className="flex items-center justify-center gap-4"
         >
           <Button asChild size="lg" className="rounded-full px-6">
-            <a href="#stride">View My Work</a>
+            <a href="#projects">View My Work</a>
           </Button>
           <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
             <a href="#contact">Get in Touch</a>

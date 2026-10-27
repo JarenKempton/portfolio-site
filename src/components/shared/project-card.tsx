@@ -19,8 +19,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardHeader>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
+            <div className="mb-1 flex items-center gap-2 text-xs text-muted-foreground">
+              <span>{project.year}</span>
+              <span aria-hidden>·</span>
+              <span>{project.status}</span>
+            </div>
             <CardTitle className="text-xl">{project.title}</CardTitle>
-            <CardDescription className="mt-1.5 text-sm leading-relaxed">
+            <p className="mt-1.5 text-sm font-medium text-foreground/90">
+              {project.tagline}
+            </p>
+            <CardDescription className="mt-2 text-sm leading-relaxed">
               {project.description}
             </CardDescription>
           </div>
