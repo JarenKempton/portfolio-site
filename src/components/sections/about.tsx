@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { aboutBio, stats } from "@/lib/data";
+import { aboutBio, principles } from "@/lib/data";
 
 export function About() {
   return (
@@ -39,16 +39,16 @@ export function About() {
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {stats.map((stat) => (
+              {principles.map((principle) => (
                 <div
-                  key={stat.label}
+                  key={principle.title}
                   className="card-glow rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm"
                 >
-                  <div className="text-gradient text-2xl font-bold">
-                    {stat.value}
+                  <div className="text-sm font-semibold text-foreground">
+                    {principle.title}
                   </div>
                   <div className="mt-1 text-xs leading-snug text-muted-foreground">
-                    {stat.label}
+                    {principle.body}
                   </div>
                 </div>
               ))}
