@@ -1,100 +1,91 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { ExtLink } from "@/components/term/ext-link";
+import { Prompt } from "@/components/term/prompt";
 import { personalInfo } from "@/lib/data";
+import { termSections } from "@/lib/sections";
+
+const facts = [
+  ["role", personalInfo.title],
+  ["focus", personalInfo.focus],
+  ["location", personalInfo.location],
+];
+
+const palette = ["bg-red", "bg-orange", "bg-yellow", "bg-green", "bg-teal", "bg-cyan", "bg-blue", "bg-magenta"];
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      className="dot-grid relative flex min-h-screen items-center justify-center overflow-hidden"
-    >
-      <div className="container mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-2 text-base font-semibold tracking-wide text-purple-300 backdrop-blur-sm"
-        >
-          {personalInfo.focus}
-        </motion.div>
+    <section id="hero" aria-label="Intro" className="flex min-h-[calc(100svh-5rem)] flex-col justify-center py-10">
+      <div className="boot space-y-6">
+        <div>
+          <Prompt cmd="whoami" />
+          <h1 className="mt-2 text-4xl font-bold leading-tight tracking-tight text-fg sm:text-6xl">
+            {personalInfo.name}
+          </h1>
+          <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-fg-dim sm:text-xl">
+            <span className="text-green">❯ </span>
+            {personalInfo.tagline}
+          </p>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-6 text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl"
-        >
-          <span className="text-gradient">{personalInfo.name}</span>
-        </motion.h1>
+        <div>
+          <Prompt cmd="neofetch" />
+          <div className="mt-3 flex flex-col gap-5 sm:flex-row sm:items-start">
+            <Image
+              src="/headshot.jpg"
+              alt={personalInfo.name}
+              width={168}
+              height={168}
+              priority
+              className="size-28 shrink-0 border border-line object-cover sm:size-40"
+            />
+            <div className="min-w-0 text-fg-dim">
+              <p className="font-bold">
+                <span className="text-blue">jaren</span>
+                <span className="text-muted">@</span>
+                <span className="text-blue">kempton</span>
+              </p>
+              <p aria-hidden className="text-muted">─────────────</p>
+              <dl>
+              {facts.map(([key, value]) => (
+                <div key={key} className="grid grid-cols-[9ch_1fr]">
+                  <dt className="text-yellow">{key}</dt>
+                  <dd className="text-fg">{value}</dd>
+                </div>
+              ))}
+              <div className="grid grid-cols-[9ch_1fr]">
+                <dt className="text-yellow">email</dt>
+                <dd className="truncate">
+                  <ExtLink href={`mailto:${personalInfo.email}`}>{personalInfo.email}</ExtLink>
+                </dd>
+              </div>
+              </dl>
+              <p aria-hidden className="mt-3 flex">
+                {palette.map((color) => (
+                  <span key={color} className={`${color} h-4 w-6`} />
+                ))}
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground sm:text-xl"
-        >
-          {personalInfo.tagline}
-        </motion.p>
+        <nav aria-label="Jump to" className="flex flex-wrap gap-x-5 gap-y-2 text-fg-dim">
+          {termSections.slice(1).map((section, i) => (
+            <a key={section.id} href={`#${section.id}`} className="group whitespace-nowrap hover:text-fg">
+              <span className="text-muted">[</span>
+              <span className="text-yellow">{i + 1}</span>
+              <span className="text-muted">]</span> <span className="group-hover:underline">{section.label}</span>
+            </a>
+          ))}
+        </nav>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex items-center justify-center gap-4"
-        >
-          <Button asChild size="lg" className="rounded-full px-6">
-            <a href="#projects">View My Work</a>
-          </Button>
-          <Button variant="outline" size="lg" className="rounded-full px-6" asChild>
-            <a href="#contact">Get in Touch</a>
-          </Button>
-        </motion.div>
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <ExtLink href={personalInfo.github}>github ↗</ExtLink>
+          <ExtLink href={personalInfo.linkedin}>linkedin ↗</ExtLink>
+          <ExtLink href={personalInfo.resumeUrl}>resume.pdf ↗</ExtLink>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 flex items-center justify-center gap-5"
-        >
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-border/50 bg-card/30 px-5 py-2.5 text-sm font-medium text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-foreground hover:shadow-[0_0_16px_oklch(0.70_0.15_270_/_15%)]"
-          >
-            <Github className="size-5" />
-            GitHub
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-border/50 bg-card/30 px-5 py-2.5 text-sm font-medium text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-foreground hover:shadow-[0_0_16px_oklch(0.70_0.15_270_/_15%)]"
-          >
-            <Linkedin className="size-5" />
-            LinkedIn
-          </a>
-        </motion.div>
+        <Prompt cursor />
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="rounded-full border border-border/50 bg-card/30 p-2 backdrop-blur-sm"
-        >
-          <ArrowDown className="size-4 text-muted-foreground" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

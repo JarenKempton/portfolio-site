@@ -1,46 +1,40 @@
-"use client";
-
-import { AnimatedSection } from "@/components/shared/animated-section";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { ProjectCard } from "@/components/shared/project-card";
+import { Prompt } from "@/components/term/prompt";
+import { Section } from "@/components/term/section";
 import { featuredProjects, moreProjects } from "@/lib/data";
+import { ProjectIndex } from "./project-index";
+import { ProjectPanel } from "./project-panel";
 
 export function Projects() {
   return (
-    <section id="projects" className="relative overflow-hidden py-24">
-      <div className="container mx-auto max-w-5xl px-4">
-        <AnimatedSection>
-          <SectionHeading
-            title="Projects"
-            subtitle="Tools I built because I wanted them to exist."
-          />
-        </AnimatedSection>
+    <Section id="projects" label="Projects" cmd="ls -l ~/projects">
+      <ProjectIndex />
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {featuredProjects.map((project, i) => (
-            <AnimatedSection key={project.slug} delay={0.1 + i * 0.1}>
-              <ProjectCard project={project} />
-            </AnimatedSection>
-          ))}
-        </div>
+      {featuredProjects.length > 0 && (
+        <>
+          <p className="mb-8 mt-10">
+            <Prompt cwd="~/projects" cmd="cat featured/*" />
+          </p>
+          <div className="grid gap-x-6 gap-y-10 md:grid-cols-2">
+            {featuredProjects.map((project) => (
+              <ProjectPanel key={project.slug} project={project} />
+            ))}
+          </div>
+        </>
+      )}
 
-        {moreProjects.length > 0 && (
-          <>
-            <AnimatedSection>
-              <h3 className="mb-6 mt-16 text-sm font-semibold uppercase tracking-wider text-primary/80">
-                More projects
-              </h3>
-            </AnimatedSection>
-            <div className="grid gap-6 md:grid-cols-2">
-              {moreProjects.map((project, i) => (
-                <AnimatedSection key={project.slug} delay={0.1 + i * 0.1}>
-                  <ProjectCard project={project} />
-                </AnimatedSection>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    </section>
+      {moreProjects.length > 0 && (
+        <>
+          <h3 className="mb-8 mt-12 font-normal">
+            <span className="sr-only">More projects: </span>
+            <Prompt cwd="~/projects" cmd="cat more/*" />
+          </h3>
+          <div className="grid gap-x-6 gap-y-10 md:grid-cols-2">
+            {moreProjects.map((project) => (
+              <ProjectPanel key={project.slug} project={project} />
+            ))}
+          </div>
+        </>
+      )}
+    </Section>
   );
 }
