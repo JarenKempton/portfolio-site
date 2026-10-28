@@ -36,7 +36,7 @@ Append an entry to `projects` in `src/lib/projects.ts`:
 },
 ```
 
-`featured: true` puts it in the main grid; leave it off to list it under "More projects". `url` and `github` are optional, so omit them for private work. `builtOn: [{ name, url }]` credits the upstream projects it extends.
+`featured: true` puts it in the main grid, even if a story also uses it; leave it off to list it under "More projects" (or only in its story). `url` and `github` are optional, so omit them for private work. `builtOn: [{ name, url }]` credits the upstream projects it extends.
 
 ### Adding a story
 

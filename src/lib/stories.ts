@@ -54,9 +54,7 @@ export function storyProjects(story: Story) {
 
 const storySlugs = new Set(stories.flatMap((story) => story.projectSlugs));
 
-export const featuredProjects = projects.filter(
-  (project) => project.featured && !storySlugs.has(project.slug),
-);
+export const featuredProjects = projects.filter((project) => project.featured);
 export const moreProjects = projects.filter(
   (project) => !project.featured && !storySlugs.has(project.slug),
 );

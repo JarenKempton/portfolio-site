@@ -42,7 +42,6 @@ export const projects: Project[] = [
     status: "Retired",
     github: "https://github.com/JarenKempton/burn",
     supersededBy: "cliproxy-dashboard",
-    featured: true,
   },
   {
     slug: "interlock",
@@ -66,7 +65,6 @@ export const projects: Project[] = [
     year: 2026,
     status: "Live",
     github: "https://github.com/JarenKempton/time-switch",
-    featured: true,
   },
   {
     slug: "cliproxy-dashboard",
