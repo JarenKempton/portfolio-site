@@ -25,7 +25,7 @@ export function ProjectPanel({ project, level }: ProjectPanelProps) {
       <p className="mt-2 leading-relaxed text-fg-dim">{project.description}</p>
       <div className="mt-auto space-y-3 pt-4">
         <TechList tech={project.tech} />
-        {(project.github || project.url || project.builtOn) && (
+        {(project.github || project.url || project.builtOn?.length) && (
           <p className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
             {project.github && (
               <ExtLink href={project.github} label={`${project.title} on GitHub`}>
@@ -37,12 +37,14 @@ export function ProjectPanel({ project, level }: ProjectPanelProps) {
                 live site ↗
               </ExtLink>
             )}
-            {project.builtOn && (
-              <span className="text-muted">
-                built on{" "}
-                <ExtLink href={project.builtOn.url} label={`Built on ${project.builtOn.name}`}>
-                  {project.builtOn.name} ↗
-                </ExtLink>
+            {project.builtOn && project.builtOn.length > 0 && (
+              <span className="flex flex-wrap gap-x-2 text-muted">
+                built on
+                {project.builtOn.map((upstream) => (
+                  <ExtLink key={upstream.url} href={upstream.url} label={`Built on ${upstream.name}`}>
+                    {upstream.name} ↗
+                  </ExtLink>
+                ))}
               </span>
             )}
           </p>

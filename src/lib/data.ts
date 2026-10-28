@@ -1,5 +1,7 @@
-export { projects, featuredProjects, moreProjects, stories, storyProjects } from "./projects";
-export type { Project, ProjectStory, Upstream } from "./projects";
+export { projects } from "./projects";
+export type { Project, Upstream } from "./projects";
+export { stories, storyProjects, featuredProjects, moreProjects } from "./stories";
+export type { Story } from "./stories";
 
 export const personalInfo = {
   name: "Jaren Kempton",
@@ -16,13 +18,13 @@ export const personalInfo = {
 
 export const aboutBio = [
   "Most of my work sits underneath other people's work: the knowledge service agents search, the conventions CI enforces, the component library every app shares. I like making a messy system smaller and easier to change, and I measure whether it actually got better.",
-  "I started in a 1.2M-line PHP codebase, helping move it to TypeScript and getting tests into a team that had none. These days I spend a lot of time on retrieval quality and on keeping AI-assisted code close to the design it was meant to follow.",
+  "Lately that mostly means AI agents: giving them good context to search, conventions CI can enforce, and evals that show whether a change actually helped. The same things make a codebase easier for the people working in it.",
 ];
 
 export const principles = [
   {
     title: "Boring on purpose",
-    body: "Simple designs that do exactly what you expect. If it needs a diagram to explain, it isn't finished.",
+    body: "Hard problems are fine. Code that needs deep knowledge of the whole system to change safely, or has side effects nobody would expect, isn't. When I find that, I look for a way to simplify the core structure instead of adding another workaround.",
   },
   {
     title: "Don't reinvent the wheel",
@@ -33,11 +35,6 @@ export const principles = [
     body: "Agents are great at writing long-running evals and test harnesses nobody ships. That temporary code is how the code that does ship gets to be boring.",
   },
 ] as const;
-
-export const offTheClock = [
-  "The house runs on Home Assistant, with ESPHome sensor nodes and dashboard cards I wrote when the stock ones didn't do what I wanted.",
-  "I daily-drive Linux on Omarchy, so I'm writing a native desktop client to get iMessage on it.",
-];
 
 export interface Role {
   title: string;
@@ -58,6 +55,7 @@ export const experiences: Experience[] = [
   {
     company: "Symphosize",
     roles: [{ title: "Technical Consultant", period: "Jun 2026 — Present" }],
+    url: "https://symphosize.com",
     note: "Part-time",
     current: true,
     highlights: [
@@ -93,7 +91,8 @@ export const experiences: Experience[] = [
     tech: ["Rust", "Google Apps Script"],
   },
   {
-    company: "Symphosize",
+    company: "ResponsiBid",
+    url: "https://responsibid.com",
     roles: [
       { title: "Junior Developer", period: "May 2022 — Oct 2023" },
       { title: "Developer Intern", period: "May 2021 — Jul 2021" },
@@ -132,6 +131,7 @@ export const skillCategories: SkillCategory[] = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Stories", href: "#stories" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },

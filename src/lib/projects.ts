@@ -13,15 +13,8 @@ export interface Project {
   status: "Live" | "Active" | "In development" | "Client work";
   url?: string;
   github?: string;
-  builtOn?: Upstream;
+  builtOn?: Upstream[];
   featured?: boolean;
-}
-
-export interface ProjectStory {
-  slug: string;
-  title: string;
-  body: string[];
-  projectSlugs: string[];
 }
 
 export const projects: Project[] = [
@@ -83,7 +76,7 @@ export const projects: Project[] = [
     year: 2026,
     status: "Active",
     github: "https://github.com/JarenKempton/cliproxy-dashboard",
-    builtOn: { name: "CLIProxyAPI", url: "https://github.com/router-for-me/CLIProxyAPI" },
+    builtOn: [{ name: "CLIProxyAPI", url: "https://github.com/router-for-me/CLIProxyAPI" }],
   },
   {
     slug: "garm-dashboard",
@@ -95,7 +88,22 @@ export const projects: Project[] = [
     year: 2026,
     status: "Active",
     github: "https://github.com/JarenKempton/garm-dashboard",
-    builtOn: { name: "GARM", url: "https://github.com/cloudbase/garm" },
+    builtOn: [{ name: "GARM", url: "https://github.com/cloudbase/garm" }],
+  },
+  {
+    slug: "bluebubbles-gpui",
+    title: "BlueBubbles GPUI",
+    tagline: "iMessage on Linux, as a native desktop app.",
+    description:
+      "A native desktop client for a BlueBubbles iMessage server, written in Rust with GPUI. Built in a day.",
+    tech: ["Rust", "GPUI"],
+    year: 2026,
+    status: "Active",
+    github: "https://github.com/JarenKempton/bluebubbles-gpui",
+    builtOn: [
+      { name: "BlueBubbles", url: "https://bluebubbles.app" },
+      { name: "GPUI", url: "https://www.gpui.rs" },
+    ],
   },
   {
     slug: "mtb-suspension",
@@ -110,29 +118,8 @@ export const projects: Project[] = [
   },
 ];
 
-export const stories: ProjectStory[] = [
-  {
-    slug: "agents-on-my-hardware",
-    title: "Running agent workloads on my own hardware",
-    body: [
-      "Heavy PR traffic and a lot of parallel agent runs made GitHub Actions minutes expensive. Rather than pay for more, I moved the heavy jobs onto computers I already had.",
-      "GARM manages the self-hosted runners, and CLIProxyAPI lets agents on every machine share the same subscriptions. Both already did the hard part well, so I built what was missing on top: dashboards that show what's running, what it costs, and what's slow.",
-    ],
-    projectSlugs: ["garm-dashboard", "cliproxy-dashboard"],
-  },
-];
-
-const storySlugs = new Set(stories.flatMap((story) => story.projectSlugs));
-
-export function storyProjects(story: ProjectStory) {
-  return story.projectSlugs
+export function projectsBySlug(slugs: string[]) {
+  return slugs
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is Project => project !== undefined);
 }
-
-export const featuredProjects = projects.filter(
-  (project) => project.featured && !storySlugs.has(project.slug),
-);
-export const moreProjects = projects.filter(
-  (project) => !project.featured && !storySlugs.has(project.slug),
-);
