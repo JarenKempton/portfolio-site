@@ -34,14 +34,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.builtOn && (
               <p className="mt-2 text-xs text-muted-foreground">
                 Built on{" "}
-                <a
-                  href={project.builtOn.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-foreground"
-                >
-                  {project.builtOn.name}
-                </a>
+                {project.builtOn.map((upstream, i) => (
+                  <span key={upstream.url}>
+                    {i > 0 && " + "}
+                    <a
+                      href={upstream.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:text-foreground"
+                    >
+                      {upstream.name}
+                    </a>
+                  </span>
+                ))}
               </p>
             )}
           </div>
