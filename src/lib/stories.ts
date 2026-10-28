@@ -37,6 +37,15 @@ export const stories: Story[] = [
     projectSlugs: ["bluebubbles-gpui"],
     links: [{ name: "Omarchy", url: "https://github.com/basecamp/omarchy" }],
   },
+  {
+    slug: "time-switch",
+    title: "Clocking in with a switch",
+    problem:
+      "I split my time between two companies, and remembering to start and stop the right timer got old fast.",
+    solution:
+      "I had an ESP32 and a three-position switch lying around, so I wired them up: left or right clocks me in for a company, middle clocks me out. Each flip sends an event to a Cloudflare Worker that keeps my session history in D1, and a dashboard built on Durable Objects updates live on my phone and computer. If I forget to clock out, I fix it from wherever I am, and I can edit history or whole pay periods when I need to.",
+    projectSlugs: ["time-switch"],
+  },
 ];
 
 export function storyProjects(story: Story) {

@@ -62,7 +62,7 @@ export const projects: Project[] = [
     tagline: "A physical switch on my desk that clocks me in and out.",
     description:
       "A three-position switch wired to an ESP32-C3: left and right start a work session for one of two companies, middle stops it. A Cloudflare Workers dashboard updates live and keeps hours and pay-period history behind Cloudflare Access.",
-    tech: ["C", "ESP32", "TypeScript", "Cloudflare Workers"],
+    tech: ["C", "ESP32", "TypeScript", "Cloudflare Workers", "D1", "Durable Objects"],
     year: 2026,
     status: "Live",
     github: "https://github.com/JarenKempton/time-switch",
