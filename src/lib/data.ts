@@ -25,8 +25,8 @@ export const principles = [
     body: "Simple designs that do exactly what you expect. If it needs a diagram to explain, it isn't finished.",
   },
   {
-    title: "Use what already exists",
-    body: "Most problems already have a good tool. I'd rather wire the existing one up well than rebuild it worse.",
+    title: "Don't reinvent the wheel",
+    body: "I'd rather write a small thing than add a dependency for it, because every dependency is something outside my control that can break. But when an open-source standard can replace a pile of custom code and make it consistent, that's the one I pick.",
   },
   {
     title: "Throwaway code, bombproof product",
