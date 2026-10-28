@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { aboutBio, stats } from "@/lib/data";
-import { GraduationCap } from "lucide-react";
+import { aboutBio, principles } from "@/lib/data";
 
 export function About() {
   return (
@@ -33,39 +32,26 @@ export function About() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {aboutBio}
-            </p>
+            <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+              {aboutBio.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              {stats.map((stat) => (
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {principles.map((principle) => (
                 <div
-                  key={stat.label}
-                  className="card-glow flex-1 rounded-lg border border-border/50 bg-card/50 p-4 text-center backdrop-blur-sm"
-                  style={{ minWidth: "140px" }}
+                  key={principle.title}
+                  className="card-glow rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm"
                 >
-                  <div className="text-gradient text-2xl font-bold">
-                    {stat.value}
+                  <div className="text-sm font-semibold text-foreground">
+                    {principle.title}
                   </div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    {stat.label}
+                  <div className="mt-1 text-xs leading-snug text-muted-foreground">
+                    {principle.body}
                   </div>
                 </div>
               ))}
-              <div
-                className="card-glow flex flex-1 items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm"
-                style={{ minWidth: "140px" }}
-              >
-                <GraduationCap className="size-6 shrink-0 text-purple-400" />
-                <div>
-                  <div className="text-sm font-semibold text-foreground">
-                    Computer Science
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Pursuing B.S. Degree
-                  </div>
-                </div>
-              </div>
             </div>
           </AnimatedSection>
         </div>
