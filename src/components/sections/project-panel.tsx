@@ -3,6 +3,7 @@ import { Panel } from "@/components/term/panel";
 import { TechList } from "@/components/term/tech-list";
 import type { Project } from "@/lib/data";
 import { ProjectStatus } from "./project-status";
+import { SuccessorLink } from "./successor-link";
 
 interface ProjectPanelProps {
   project: Project;
@@ -14,6 +15,7 @@ export function ProjectPanel({ project, level }: ProjectPanelProps) {
     <Panel
       id={`project-${project.slug}`}
       level={level}
+      dashed={project.status === "Retired"}
       title={project.title}
       meta={
         <>
@@ -24,6 +26,7 @@ export function ProjectPanel({ project, level }: ProjectPanelProps) {
       <p className="font-bold leading-relaxed text-fg">{project.tagline}</p>
       <p className="mt-2 leading-relaxed text-fg-dim">{project.description}</p>
       <div className="mt-auto space-y-3 pt-4">
+        {project.supersededBy && <SuccessorLink slug={project.supersededBy} />}
         <TechList tech={project.tech} />
         {(project.github || project.url || project.builtOn?.length) && (
           <p className="flex flex-wrap gap-x-5 gap-y-1 text-sm">

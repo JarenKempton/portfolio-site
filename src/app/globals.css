@@ -125,3 +125,7 @@ button:focus-visible {
     animation: none;
   }
 }
+
+[data-nav]:target {
+  border-color: var(--color-yellow);
+}

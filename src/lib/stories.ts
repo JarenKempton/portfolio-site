@@ -25,7 +25,7 @@ export const stories: Story[] = [
     problem:
       "With agents running across several tools and machines, I couldn't tell how close I was to my limits or why one session cost far more than another.",
     solution:
-      "Burn collects quota windows and token use from every tool on every machine and keeps the history locally. Quench reads the session logs agents already write and shows what each session loads and where runs go wrong.",
+      "Burn collected quota windows and token use from every tool on every machine and kept the history locally. Once all my machines ran through CLIProxyAPI, I ported Burn's usage history into the CLIProxy Dashboard and retired it. Quench reads the session logs agents already write and shows what each session loads and where runs go wrong.",
     projectSlugs: ["burn", "quench"],
   },
   {

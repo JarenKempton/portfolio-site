@@ -1,5 +1,7 @@
+import { Fragment } from "react";
 import { projects } from "@/lib/data";
 import { ProjectStatus } from "./project-status";
+import { SuccessorLink } from "./successor-link";
 
 export function ProjectIndex() {
   return (
@@ -16,18 +18,30 @@ export function ProjectIndex() {
         </thead>
         <tbody>
           {projects.map((project) => (
-            <tr key={project.slug} className="align-top">
-              <td className="whitespace-nowrap pr-4">
-                <ProjectStatus status={project.status} />
-              </td>
-              <td className="pr-4 text-muted">{project.year}</td>
-              <td className="whitespace-nowrap pr-4">
-                <a href={`#project-${project.slug}`} className="font-bold text-blue hover:underline">
-                  {project.slug}/
-                </a>
-              </td>
-              <td className="hidden text-fg-dim md:table-cell">{project.tagline}</td>
-            </tr>
+            <Fragment key={project.slug}>
+              <tr className="align-top">
+                <td className="whitespace-nowrap pr-4">
+                  <ProjectStatus status={project.status} />
+                </td>
+                <td className="pr-4 text-muted">{project.year}</td>
+                <td className="whitespace-nowrap pr-4">
+                  <a href={`#project-${project.slug}`} className="font-bold text-blue hover:underline">
+                    {project.slug}/
+                  </a>
+                  {project.supersededBy && (
+                    <SuccessorLink slug={project.supersededBy} compact className="ml-1 hidden sm:inline" />
+                  )}
+                </td>
+                <td className="hidden text-fg-dim md:table-cell">{project.tagline}</td>
+              </tr>
+              {project.supersededBy && (
+                <tr className="sm:hidden">
+                  <td colSpan={3} className="text-right">
+                    <SuccessorLink slug={project.supersededBy} compact />
+                  </td>
+                </tr>
+              )}
+            </Fragment>
           ))}
         </tbody>
       </table>

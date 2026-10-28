@@ -4,6 +4,7 @@ const colors: Record<Project["status"], string> = {
   Live: "text-green",
   Active: "text-teal",
   "In development": "text-yellow",
+  Retired: "text-muted",
   "Client work": "text-magenta",
 };
 
