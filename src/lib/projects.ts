@@ -10,10 +10,11 @@ export interface Project {
   description: string;
   tech: string[];
   year: number;
-  status: "Live" | "Active" | "In development" | "Client work";
+  status: "Live" | "Active" | "In development" | "Retired" | "Client work";
   url?: string;
   github?: string;
   builtOn?: Upstream[];
+  supersededBy?: string;
   featured?: boolean;
 }
 
@@ -38,8 +39,9 @@ export const projects: Project[] = [
       "One executable that runs as a server or a collector. Collectors on each machine gather quota windows, token use, credits and inference speed from Claude Code, Codex, OpenRouter and LM Studio, and report to a server that keeps the history in SQLite. Enrollment is a browser-approved device flow, and provider credentials never leave the machine that collected them.",
     tech: ["TypeScript", "Hono", "SQLite", "Tailscale"],
     year: 2026,
-    status: "Active",
+    status: "Retired",
     github: "https://github.com/JarenKempton/burn",
+    supersededBy: "cliproxy-dashboard",
     featured: true,
   },
   {

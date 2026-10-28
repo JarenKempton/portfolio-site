@@ -7,13 +7,14 @@ import {
 } from "@/components/ui/card";
 import { TechBadge } from "@/components/shared/tech-badge";
 import { ExternalLink, Github } from "lucide-react";
-import type { Project } from "@/lib/data";
+import { projects, type Project } from "@/lib/data";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const successor = projects.find((candidate) => candidate.slug === project.supersededBy);
   return (
     <Card className="card-glow group flex h-full flex-col border-border/50 bg-card/50 backdrop-blur-sm transition-colors hover:border-primary/30">
       <CardHeader>
@@ -31,6 +32,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <CardDescription className="mt-2 text-sm leading-relaxed">
               {project.description}
             </CardDescription>
+            {successor && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Ported into {successor.title}
+              </p>
+            )}
             {project.builtOn && (
               <p className="mt-2 text-xs text-muted-foreground">
                 Built on{" "}
