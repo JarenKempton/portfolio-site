@@ -1,5 +1,5 @@
-export { projects, featuredProjects, moreProjects } from "./projects";
-export type { Project } from "./projects";
+export { projects, featuredProjects, moreProjects, stories, storyProjects } from "./projects";
+export type { Project, ProjectStory, Upstream } from "./projects";
 
 export const personalInfo = {
   name: "Jaren Kempton",
@@ -17,7 +17,6 @@ export const personalInfo = {
 export const aboutBio = [
   "Most of my work sits underneath other people's work: the knowledge service agents search, the conventions CI enforces, the component library every app shares. I like making a messy system smaller and easier to change, and I measure whether it actually got better.",
   "I started in a 1.2M-line PHP codebase, helping move it to TypeScript and getting tests into a team that had none. These days I spend a lot of time on retrieval quality and on keeping AI-assisted code close to the design it was meant to follow.",
-  "Outside of work I build small local-first tools for things that bug me, like where my AI usage goes, what my coding agents load, and a switch on my desk that clocks me in.",
 ];
 
 export const principles = [
@@ -36,7 +35,6 @@ export const principles = [
 ] as const;
 
 export const offTheClock = [
-  "I clock in by flipping a physical switch on my desk. An ESP32 behind it tells my dashboard which company I'm working for.",
   "The house runs on Home Assistant, with ESPHome sensor nodes and dashboard cards I wrote when the stock ones didn't do what I wanted.",
   "I daily-drive Linux on Omarchy, so I'm writing a native desktop client to get iMessage on it.",
 ];

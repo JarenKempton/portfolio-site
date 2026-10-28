@@ -1,8 +1,9 @@
 import { Prompt } from "@/components/term/prompt";
 import { Section } from "@/components/term/section";
-import { featuredProjects, moreProjects } from "@/lib/data";
+import { featuredProjects, moreProjects, stories } from "@/lib/data";
 import { ProjectIndex } from "./project-index";
 import { ProjectPanel } from "./project-panel";
+import { ProjectStory } from "./project-story";
 
 export function Projects() {
   return (
@@ -17,6 +18,10 @@ export function Projects() {
           <ProjectPanel key={project.slug} project={project} />
         ))}
       </div>
+
+      {stories.map((story) => (
+        <ProjectStory key={story.slug} story={story} />
+      ))}
 
       {moreProjects.length > 0 && (
         <>
