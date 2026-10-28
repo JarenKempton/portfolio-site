@@ -43,7 +43,7 @@ export const stories: Story[] = [
     problem:
       "I split my time between two companies, and remembering to start and stop the right timer got old fast.",
     solution:
-      "I had an ESP32 and a three-position switch lying around, so I wired them up: left or right clocks me in for a company, middle clocks me out. Each flip sends an event to a Cloudflare Worker that keeps my session history in D1, and a dashboard built on Durable Objects updates live on my phone and computer. If I forget to clock out, I fix it from wherever I am, and I can edit history or whole pay periods when I need to.",
+      "I had an ESP32 and a three-position switch lying around, so I wired them up: left or right clocks me in for a company, middle clocks me out. Each flip sends an event to a Cloudflare Worker, which hosts the dashboard and keeps my session history in D1. A Durable Object handles the real-time side, so the dashboard updates live on my phone and computer the moment the switch moves. If I forget to clock out, I fix it from wherever I am, and I can edit history or whole pay periods when I need to.",
     projectSlugs: ["time-switch"],
   },
 ];
