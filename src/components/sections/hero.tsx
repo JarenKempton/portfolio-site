@@ -83,8 +83,6 @@ export function Hero() {
           <ExtLink href={personalInfo.linkedin}>linkedin ↗</ExtLink>
           <ExtLink href={personalInfo.resumeUrl}>resume.pdf ↗</ExtLink>
         </div>
-
-        <Prompt cursor />
       </div>
     </section>
   );

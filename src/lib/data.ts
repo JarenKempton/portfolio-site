@@ -103,6 +103,14 @@ export const experiences: Experience[] = [
     ],
     tech: ["CakePHP", "React", "Next.js", "NestJS", "GraphQL", "Jest"],
   },
+  {
+    company: "Independent",
+    roles: [{ title: "Self-Taught Developer", period: "2020 — 2021" }],
+    highlights: [
+      "Discovered a passion for building things with code. Spent time learning vanilla JavaScript, HTML/CSS, Python, Java, and Arduino C++ through personal projects and experimentation — building everything from web pages to hardware prototypes.",
+    ],
+    tech: ["JavaScript", "HTML/CSS", "Python", "Java", "Arduino", "C++"],
+  },
 ];
 
 export interface SkillCategory {
