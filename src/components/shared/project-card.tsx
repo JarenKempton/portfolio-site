@@ -31,6 +31,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <CardDescription className="mt-2 text-sm leading-relaxed">
               {project.description}
             </CardDescription>
+            {project.builtOn && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Built on{" "}
+                <a
+                  href={project.builtOn.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  {project.builtOn.name}
+                </a>
+              </p>
+            )}
           </div>
           <div className="flex shrink-0 gap-2">
             {project.github && (
