@@ -61,3 +61,12 @@ test("unknown URLs return a real 404 instead of the homepage", async ({ request 
   expect(response.status()).toBe(404);
   expect(await response.text()).not.toContain("cat contact.txt");
 });
+
+test("www redirects to the canonical host without losing paths or query strings", async ({ request, baseURL }) => {
+  test.skip(new URL(baseURL!).hostname !== "jarenkempton.dev", "Requires the production Cloudflare edge rule");
+  for (const path of ["/?source=redirect-check", "/resume.pdf?source=redirect-check"]) {
+    const response = await request.get(`https://www.jarenkempton.dev${path}`, { maxRedirects: 0 });
+    expect(response.status()).toBe(301);
+    expect(response.headers().location).toBe(`https://jarenkempton.dev${path}`);
+  }
+});
