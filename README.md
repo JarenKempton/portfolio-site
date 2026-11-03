@@ -15,6 +15,8 @@ Use Node.js 24 (see `.node-version`).
 
 Cloudflare Pages builds with `npm run build` and publishes `dist/` from `main`. No adapter, server runtime, or environment variables are required. The canonical URL is configured in `astro.config.mjs`; update it if the domain changes.
 
+The Cloudflare zone has a 301 Redirect Rule from `https://www.jarenkempton.dev/*` to `https://jarenkempton.dev/${1}`, with query strings preserved. Hostname redirects belong at the edge: Pages `_redirects` only accepts relative source paths.
+
 Run browser checks against the preview server with `npx playwright install chromium && npm test`. To check a deployed site, use `SITE_URL=https://jarenkempton.dev npm test`.
 
 ## Content
