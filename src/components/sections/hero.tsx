@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ExtLink } from "@/components/term/ext-link";
 import { Prompt } from "@/components/term/prompt";
 import { personalInfo } from "@/lib/data";
@@ -12,7 +11,7 @@ const facts = [
 
 const palette = ["bg-red", "bg-orange", "bg-yellow", "bg-green", "bg-teal", "bg-cyan", "bg-blue", "bg-magenta"];
 
-export function Hero() {
+export function Hero({ headshot }: { headshot: string }) {
   return (
     <section id="hero" aria-label="Intro" className="flex min-h-[calc(100svh-5rem)] flex-col justify-center py-10">
       <div className="boot space-y-6">
@@ -30,12 +29,12 @@ export function Hero() {
         <div>
           <Prompt cmd="neofetch" />
           <div className="mt-3 flex flex-col gap-5 sm:flex-row sm:items-start">
-            <Image
-              src="/headshot.jpg"
+            <img
+              src={headshot}
               alt={personalInfo.name}
               width={168}
               height={168}
-              priority
+              fetchPriority="high"
               className="size-28 shrink-0 border border-line object-cover sm:size-40"
             />
             <div className="min-w-0 text-fg-dim">

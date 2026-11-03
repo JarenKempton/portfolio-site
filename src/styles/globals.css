@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --color-bg: #1a1b26;
   --color-bg-dark: #16161e;
   --color-bg-hl: #292e42;
@@ -128,4 +128,35 @@ button:focus-visible {
 
 [data-nav]:target {
   border-color: var(--color-yellow);
+}
+
+.terminal-tab {
+  color: var(--color-fg-dim);
+}
+
+.terminal-tab:hover {
+  background: var(--color-bg-hl);
+  color: var(--color-fg);
+}
+
+.terminal-tab .tab-number {
+  color: var(--color-yellow);
+}
+
+.terminal-tab .tab-marker {
+  display: none;
+}
+
+.terminal-tab[aria-current="location"] {
+  background: var(--color-blue);
+  color: var(--color-bg-dark);
+  font-weight: 700;
+}
+
+.terminal-tab[aria-current="location"] .tab-number {
+  color: inherit;
+}
+
+.terminal-tab[aria-current="location"] .tab-marker {
+  display: inline;
 }
