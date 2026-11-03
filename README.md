@@ -1,11 +1,21 @@
 # jarenkempton.dev
 
-Personal site. Next.js 16, Tailwind 4, framer-motion.
+Personal site. Astro, Tailwind 4, and build-time React components. Content is static HTML; a small vanilla script handles terminal navigation.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+## Build and hosting
+
+Use Node.js 24 (see `.node-version`).
+
+`npm run build` typechecks the site and generates `dist/`. `npm run preview` serves that production output locally.
+
+Cloudflare Pages builds with `npm run build` and publishes `dist/` from `main`. No adapter, server runtime, or environment variables are required. The canonical URL is configured in `astro.config.mjs`; update it if the domain changes.
+
+Run browser checks against the preview server with `npx playwright install chromium && npm test`. To check a deployed site, use `SITE_URL=https://jarenkempton.dev npm test`.
 
 ## Content
 

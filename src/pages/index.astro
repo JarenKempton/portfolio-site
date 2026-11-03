@@ -1,0 +1,56 @@
+---
+import { getImage } from "astro:assets";
+import headshot from "@/assets/headshot.jpg";
+import "@fontsource/jetbrains-mono/latin-400.css";
+import "@fontsource/jetbrains-mono/latin-700.css";
+import "../styles/globals.css";
+import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
+import { Experience } from "@/components/sections/experience";
+import { Hero } from "@/components/sections/hero";
+import { Principles } from "@/components/sections/principles";
+import { Projects } from "@/components/sections/projects";
+import { Skills } from "@/components/sections/skills";
+import { Stories } from "@/components/sections/stories";
+import Shell from "@/components/term/shell.astro";
+
+const portrait = await getImage({ src: headshot, width: 336, format: "webp" });
+const title = "Jaren Kempton | Senior Full Stack Engineer";
+const description = "Senior full stack engineer working on developer platforms and AI tooling: MCP servers, retrieval, and CI guardrails for AI-assisted codebases.";
+const socialDescription = "Developer platforms and AI tooling: MCP servers, retrieval, and CI guardrails for AI-assisted codebases.";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Jaren Kempton, Full Stack Engineer, Developer Platform, AI Tooling, MCP, TypeScript" />
+    <meta name="theme-color" content="#1a1b26" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={socialDescription} />
+  </head>
+  <body class="antialiased">
+    <Shell>
+      <Hero headshot={portrait.src} />
+      <Principles />
+      <About />
+      <Stories />
+      <Projects />
+      <Experience />
+      <Skills />
+      <Contact />
+    </Shell>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+---
+import { termSections } from "@/lib/sections";
+
+const hints = [
+  ["j/k", "move"],
+  [`1-${termSections.length - 1}`, "jump"],
+  ["g/G", "top/end"],
+  ["⏎", "open"],
+];
+---
+
+<header class="fixed inset-x-0 top-0 z-40 border-b border-line bg-bg-dark/95 backdrop-blur">
+  <nav data-tabs aria-label="Sections" class="no-scrollbar mx-auto flex max-w-[110ch] items-stretch overflow-x-auto text-sm leading-9">
+    <span class="hidden shrink-0 bg-green px-3 font-bold text-bg-dark sm:block">jk</span>
+    {termSections.map((section, i) => (
+      <a
+        href={`#${section.id}`}
+        data-file={section.file}
+        aria-current={i === 0 ? "location" : undefined}
+        class="terminal-tab shrink-0 px-3 transition-colors"
+      >
+        <span class="tab-number">{i}</span>:{section.label}<span class="tab-marker" aria-hidden="true">*</span>
+      </a>
+    ))}
+  </nav>
+</header>
+<main class="mx-auto max-w-[110ch] px-4 pb-16 pt-12 sm:px-6"><slot /></main>
+<footer aria-label="Status" class="fixed inset-x-0 bottom-0 z-40 flex items-stretch border-t border-line bg-bg-dark text-xs leading-7 sm:text-sm">
+  <span class="shrink-0 bg-blue px-3 font-bold text-bg-dark">NORMAL</span>
+  <span data-status-file class="shrink-0 bg-bg-hl px-3 text-fg">{termSections[0].file}</span>
+  <ul aria-label="Keyboard shortcuts" class="hidden min-w-0 flex-1 items-center gap-4 overflow-hidden px-4 text-muted lg:flex">
+    {hints.map(([key, action]) => (
+      <li class="whitespace-nowrap"><kbd class="font-mono text-yellow">{key}</kbd> {action}</li>
+    ))}
+  </ul>
+  <span data-status-section class="ml-auto shrink-0 px-3 text-muted">1/{termSections.length}</span>
+  <span data-status-scroll class="w-[6ch] shrink-0 bg-bg-hl text-center text-fg" aria-label="Scroll position">Top</span>
+</footer>
+<div aria-hidden="true" class="scanlines"></div>
+
+<script>
+  import { initTerminal } from "@/scripts/terminal";
+  initTerminal();
+</script>
