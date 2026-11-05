@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-chrome: "VT323", ui-monospace, monospace;
+  --font-pixel: "Silkscreen", ui-monospace, monospace;
+  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --color-platinum: #dedede;
+  --color-steel: #9a9a9a;
+  --color-ink: #111111;
+  --color-link: #0000c8;
+  --color-hilite: #2a3cb0;
+  --color-folder: #9c9cff;
+}
+
+html {
+  background: #000;
+  color: var(--color-ink);
+}
+
+body {
+  margin: 0;
+}
+
+::selection {
+  background: var(--color-hilite);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: 2px;
+}
+
+.desktop-bg {
+  background-color: #2f7f7b;
+  background-image: repeating-conic-gradient(#2a7470 0 25%, #348a86 0 50%);
+  background-size: 4px 4px;
+}
+
+.menubar {
+  background: #fff;
+  border-bottom: 1px solid #000;
+}
+
+.menu-item {
+  padding: 0 10px;
+  line-height: 27px;
+  color: #000;
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+  background: var(--color-hilite);
+  color: #fff;
+  outline: none;
+}
+
+.desk-icon:hover .desk-label,
+.desk-icon:focus-visible .desk-label {
+  background: var(--color-hilite);
+  color: #fff;
+}
+
+.desk-icon:focus-visible {
+  outline: none;
+}
+
+.desk-icon:focus-visible svg {
+  filter: brightness(0.6) sepia(1) hue-rotate(190deg) saturate(4);
+}
+
+.desk-label {
+  background: #fff;
+  color: #000;
+  padding: 0 4px;
+}
+
+.win {
+  background: var(--color-platinum);
+  border: 1px solid #000;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #8a8a8a,
+    3px 3px 0 rgb(0 0 0 / 0.4);
+  scroll-margin-top: 40px;
+}
+
+.win:focus {
+  outline: none;
+}
+
+.win:not([hidden]) {
+  animation: win-open 160ms steps(4) both;
+}
+
+@keyframes win-open {
+  from {
+    transform: scale(0.94);
+  }
+}
+
+.win-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 25px;
+  padding: 0 6px;
+  user-select: none;
+  touch-action: none;
+}
+
+.win-stripes {
+  flex: 1;
+  height: 13px;
+  min-width: 8px;
+}
+
+.win[data-active="true"] .win-stripes {
+  background: repeating-linear-gradient(to bottom, #fff 0 1px, #8c8c8c 1px 2px);
+  border-top: 1px solid #fff;
+}
+
+.win[data-active="false"] .win-title h2 {
+  color: #7a7a7a;
+}
+
+.win-box {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  background: linear-gradient(135deg, #fff 0%, #c8c8c8 100%);
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #7a7a7a;
+}
+
+.win-box:active {
+  background: #333;
+}
+
+.win[data-active="false"] .win-box {
+  border-color: #8a8a8a;
+  background: var(--color-platinum);
+  box-shadow: none;
+}
+
+.win-status {
+  margin: 0 6px 4px;
+  padding: 0 8px;
+  border: 1px solid #8a8a8a;
+  box-shadow: inset 1px 1px 0 #fff;
+}
+
+.win-pane {
+  margin: 0 6px 6px;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 0 #fff;
+  scrollbar-color: #9a9a9a #e8e8e8;
+}
+
+.win-pane::-webkit-scrollbar {
+  width: 16px;
+}
+
+.win-pane::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border-left: 1px solid #000;
+}
+
+.win-pane::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #f4f4f4, #a8a8a8);
+  border: 1px solid #000;
+}
+
+.mac-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1px 16px 2px;
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: 21px;
+  line-height: 1.2;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 6px;
+  background: linear-gradient(#fff, #d4d4d4);
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #9a9a9a;
+}
+
+.mac-btn:active {
+  background: #222;
+  color: #fff;
+}
+
+.mac-btn-default {
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #9a9a9a,
+    0 0 0 2px var(--color-platinum),
+    0 0 0 5px #000;
+  margin: 5px;
+}
+
+.on-white .mac-btn-default {
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #9a9a9a,
+    0 0 0 2px #fff,
+    0 0 0 5px #000;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 6px;
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: 18px;
+  line-height: 1.25;
+  border: 1px solid #000;
+  background: #f0f0f0;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.etched {
+  border: 0;
+  border-top: 1px solid #8a8a8a;
+  border-bottom: 1px solid #fff;
+}
+
+.group-box {
+  border: 1px solid #8a8a8a;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+.text-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.text-link:hover {
+  background: var(--color-link);
+  color: #fff;
+  text-decoration: none;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.square-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.square-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
