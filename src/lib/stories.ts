@@ -11,6 +11,15 @@ export interface Story {
 
 export const stories: Story[] = [
   {
+    slug: "job-search-after-layoffs",
+    title: "Job hunting with the people I was laid off with",
+    problem:
+      "I was part of a round of layoffs, and several of us kept in touch in a group chat. Everyone was juggling applications, recruiter emails and follow-ups, and it was hard to tell which replies belonged to which application or why some companies kept saying no.",
+    solution:
+      "I built Job Search for my own search. Cloudflare's Clef model answers fixed questions about a resume and a posting (skills, experience, related work, hard requirements), and fixed weights turn the answers into a 0–100 match score. A Grok routine runs daily to find new postings in areas that score well against my resume, and the breakdowns show where to bring the resume closer to the roles I want. I opened it up to the group: their AI assistant reconciles the inbox with the applications they've sent and logs each reply, the tracker flags follow-ups as they come due, and it shows which companies reject you most.",
+    projectSlugs: ["job-search"],
+  },
+  {
     slug: "agents-on-my-hardware",
     title: "Running agent workloads on my own hardware",
     problem:
