@@ -36,7 +36,7 @@ export function Hero({ headshot }: { headshot: string }) {
               height={168}
               fetchPriority="high"
               data-computer-egg
-              className="size-28 shrink-0 border border-line object-cover sm:size-40"
+              className="size-28 shrink-0 touch-manipulation select-none border border-line object-cover sm:size-40"
             />
             <div className="min-w-0 text-fg-dim">
               <p className="font-bold">
