@@ -12,7 +12,7 @@ export function Menubar() {
         </span>
         <span className="sr-only">Read Me</span>
       </WindowLink>
-      <span className="menu-item truncate font-bold">{personalInfo.name}</span>
+      <span className="menu-item min-w-0 truncate font-bold">{personalInfo.name}</span>
       <nav aria-label="Sections" className="hidden md:flex">
         {navLinks.map((link) => {
           const target = link.href.slice(1);
@@ -23,7 +23,7 @@ export function Menubar() {
           ) : null;
         })}
       </nav>
-      <div className="ml-auto flex">
+      <div className="ml-auto flex shrink-0">
         <a href="/" className="menu-item block">
           ← Terminal
         </a>
