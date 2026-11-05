@@ -16,7 +16,7 @@ export const stories: Story[] = [
     problem:
       "I was part of a round of layoffs, and several of us kept in touch in a group chat. Everyone was juggling applications, recruiter emails and follow-ups, and it was hard to tell which replies belonged to which application or why some companies kept saying no.",
     solution:
-      "I'd already built Job Search for my own search, so I opened it up to them. Their AI assistant reconciles the inbox with the applications they've sent and logs each reply, and the tracker flags follow-ups as they come due. It shows which companies reject you most, and a resume-match score on every posting lets you compare fit against those rejections to see what to change on your resume to become a stronger candidate.",
+      "I built Job Search for my own search. Cloudflare's Clef model answers fixed questions about a resume and a posting (skills, experience, related work, hard requirements), and fixed weights turn the answers into a 0–100 match score. A Grok routine runs daily to find new postings in areas that score well against my resume, and the breakdowns show where to bring the resume closer to the roles I want. I opened it up to the group: their AI assistant reconciles the inbox with the applications they've sent and logs each reply, the tracker flags follow-ups as they come due, and it shows which companies reject you most.",
     projectSlugs: ["job-search"],
   },
   {

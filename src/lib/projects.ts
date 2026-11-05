@@ -25,7 +25,7 @@ export const projects: Project[] = [
     tagline: "A private job-application tracker your AI assistant can work in too.",
     description:
       "Built for my own search; a few friends and family use it now. One Cloudflare Worker keeps each person's data in their own Durable Object, and a built-in MCP server lets ChatGPT, Claude, Grok and Claude Code read and update it with the same sign-in.",
-    tech: ["TypeScript", "Hono", "Drizzle", "React 19", "Vite", "Tailwind 4", "shadcn/ui", "Vitest"],
+    tech: ["TypeScript", "Cloudflare Workers", "Durable Objects", "Workers AI (Clef)", "Hono", "Drizzle", "React 19", "Vite", "Tailwind 4", "shadcn/ui", "Vitest"],
     year: 2026,
     status: "Live",
     github: "https://github.com/JarenKempton/job-search",
