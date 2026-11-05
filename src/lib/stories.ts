@@ -11,6 +11,15 @@ export interface Story {
 
 export const stories: Story[] = [
   {
+    slug: "job-search-after-layoffs",
+    title: "Job hunting with the people I was laid off with",
+    problem:
+      "I was part of a round of layoffs, and several of us kept in touch in a group chat. Everyone was juggling applications, recruiter emails and follow-ups, and it was hard to tell which replies belonged to which application or why some companies kept saying no.",
+    solution:
+      "I'd already built Job Search for my own search, so I opened it up to them. Their AI assistant reconciles the inbox with the applications they've sent and logs each reply, and the tracker flags follow-ups as they come due. It shows which companies reject you most, and a resume-match score on every posting lets you compare fit against those rejections to see what to change on your resume to become a stronger candidate.",
+    projectSlugs: ["job-search"],
+  },
+  {
     slug: "agents-on-my-hardware",
     title: "Running agent workloads on my own hardware",
     problem:
