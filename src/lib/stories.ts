@@ -3,6 +3,7 @@ import { projects, projectsBySlug, type Upstream } from "./projects";
 export interface TimelinePoint {
   date: string;
   event: string;
+  kind: "start" | "ship" | "end" | "now";
 }
 
 export interface Story {
@@ -25,9 +26,9 @@ export const stories: Story[] = [
       "I built Job Search for my own search. Cloudflare's Clef model answers fixed questions about a resume and a posting (skills, experience, related work, hard requirements), and fixed weights turn the answers into a 0–100 match score. A Grok routine runs daily to find new postings in areas that score well against my resume, and the breakdowns show where to bring the resume closer to the roles I want. I opened it up to the group: their AI assistant reconciles the inbox with the applications they've sent and logs each reply, the tracker flags follow-ups as they come due, and it shows which companies reject you most.",
     projectSlugs: ["job-search"],
     timeline: [
-      { date: "2026-10-19", event: "first commit" },
-      { date: "2026-10-19", event: "live in production" },
-      { date: "now", event: "ongoing" },
+      { date: "2026-10-19", event: "first commit", kind: "start" },
+      { date: "2026-10-19", event: "live in production", kind: "ship" },
+      { date: "now", event: "ongoing", kind: "now" },
     ],
   },
   {
@@ -39,10 +40,10 @@ export const stories: Story[] = [
       "I moved the heavy jobs onto computers I already had. GARM runs the self-hosted runners and CLIProxyAPI lets agents on every machine share the same subscriptions. Both already did the hard part well, so I built the dashboards they were missing: which PR a runner is working on, what usage costs, and what's slow.",
     projectSlugs: ["garm-dashboard", "cliproxy-dashboard"],
     timeline: [
-      { date: "2026-09-25", event: "CLIProxy Dashboard first commit" },
-      { date: "2026-10-12", event: "GARM Dashboard first commit" },
-      { date: "2026-10-13", event: "both deployed on my own hardware" },
-      { date: "now", event: "ongoing" },
+      { date: "2026-09-25", event: "CLIProxy Dashboard first commit", kind: "start" },
+      { date: "2026-10-12", event: "GARM Dashboard first commit", kind: "start" },
+      { date: "2026-10-13", event: "both deployed on my own hardware", kind: "ship" },
+      { date: "now", event: "ongoing", kind: "now" },
     ],
   },
   {
@@ -54,8 +55,8 @@ export const stories: Story[] = [
       "As the mission's Technology Specialist, I built a planner in Google Apps Script to make that less chaotic. It pulled travel times between apartments and meeting houses from the Google Maps API and cached them as a graph, then planned each round so every companionship had the shortest trip to meet him and he wasn't jumping around the mission. Companionships with cars were planned to pick up companionships without one on the way, never mixing men and women. Apartments opened and closed every transfer, so it recalculated each 6-week cycle on a schedule; the meeting houses mostly stayed put, unless a more central one turned up. I wrote it in TypeScript, kept it in version control and deployed it to Apps Script, all by hand, before I used AI tools. Alongside it I maintained Rust software analyzing 1,000+ records weekly, automated 100+ weekly emails and texts, and kept 150+ missionaries' phones working, including a mission-wide SIM card swap.",
     projectSlugs: [],
     timeline: [
-      { date: "2024-09", event: "started as Technology Specialist" },
-      { date: "2025-10", event: "service ended" },
+      { date: "2024-09", event: "started as Technology Specialist", kind: "start" },
+      { date: "2025-10", event: "service ended", kind: "end" },
     ],
   },
   {
@@ -67,10 +68,10 @@ export const stories: Story[] = [
       "Burn collected quota windows and token use from every tool on every machine and kept the history locally. Once all my machines ran through CLIProxyAPI, I ported Burn's usage history into the CLIProxy Dashboard and retired it. Quench reads the session logs agents already write and shows what each session loads and where runs go wrong.",
     projectSlugs: ["burn", "quench"],
     timeline: [
-      { date: "2026-07-16", event: "Quench first commit" },
-      { date: "2026-08-28", event: "Burn first commit and v0.1.0" },
-      { date: "2026-10-30", event: "Quench v0.1.0" },
-      { date: "now", event: "ongoing" },
+      { date: "2026-07-16", event: "Quench first commit", kind: "start" },
+      { date: "2026-08-28", event: "Burn first commit and v0.1.0", kind: "ship" },
+      { date: "2026-10-30", event: "Quench v0.1.0", kind: "ship" },
+      { date: "now", event: "ongoing", kind: "now" },
     ],
   },
   {
@@ -82,9 +83,9 @@ export const stories: Story[] = [
       "I had an ESP32 and a three-position switch lying around, so I wired them up: left or right clocks me in for a company, middle clocks me out. Each flip sends an event to a Cloudflare Worker, which hosts the dashboard and keeps my session history in D1. A Durable Object handles the real-time side, so the dashboard updates live on my phone and computer the moment the switch moves. If I forget to clock out, I fix it from wherever I am, and I can edit history or whole pay periods when I need to.",
     projectSlugs: ["time-switch"],
     timeline: [
-      { date: "2026-09-12", event: "first commit" },
-      { date: "2026-09-14", event: "live in production" },
-      { date: "now", event: "ongoing" },
+      { date: "2026-09-12", event: "first commit", kind: "start" },
+      { date: "2026-09-14", event: "live in production", kind: "ship" },
+      { date: "now", event: "ongoing", kind: "now" },
     ],
   },
 ];
