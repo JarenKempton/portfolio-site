@@ -27,6 +27,16 @@ export function StoryEntry({ story }: { story: Story }) {
           <dl className="mt-4 space-y-3">
             <Field label="Problem">{story.problem}</Field>
             <Field label="What I did">{story.solution}</Field>
+            <Field label="Timeline">
+              <ol className="text-sm">
+                {story.timeline.map((point) => (
+                  <li key={`${point.date}-${point.event}`} className="flex gap-x-3">
+                    <span className="w-[10ch] shrink-0 text-muted">{point.date}</span>
+                    <span>{point.event}</span>
+                  </li>
+                ))}
+              </ol>
+            </Field>
             {story.links && story.links.length > 0 && (
               <Field label="See also">
                 <span className="flex flex-wrap gap-x-5">
