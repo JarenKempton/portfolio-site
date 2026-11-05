@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jarenkempton.dev
 
-## Getting Started
-
-First, run the development server:
+Personal site. Astro, Tailwind 4, and build-time React components. Content is static HTML; a small vanilla script handles terminal navigation.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build and hosting
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Use Node.js 24 (see `.node-version`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`npm run build` typechecks the site and generates `dist/`. `npm run preview` serves that production output locally.
 
-## Learn More
+Cloudflare Pages builds with `npm run build` and publishes `dist/` from `main`. No adapter, server runtime, or environment variables are required. The canonical URL is configured in `astro.config.mjs`; update it if the domain changes.
 
-To learn more about Next.js, take a look at the following resources:
+The Cloudflare zone has a 301 Redirect Rule from `https://www.jarenkempton.dev/*` to `https://jarenkempton.dev/${1}`, with query strings preserved. Hostname redirects belong at the edge: Pages `_redirects` only accepts relative source paths.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run browser checks against the preview server with `npx playwright install chromium && npm test`. To check a deployed site, use `SITE_URL=https://jarenkempton.dev npm test`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content
 
-## Deploy on Vercel
+All copy lives in `src/lib/`; components only render it.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| File | What's in it |
+| --- | --- |
+| `src/lib/projects.ts` | Projects |
+| `src/lib/stories.ts` | Stories: problem, what you did, which projects |
+| `src/lib/data.ts` | Name, links, bio, stats, experience, skills, nav |
+| `public/resume.pdf` | Export of the resume Google Doc |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Adding a project
+
+Append an entry to `projects` in `src/lib/projects.ts`:
+
+```ts
+{
+  slug: "my-thing",
+  title: "My Thing",
+  tagline: "One line on what it does.",
+  description: "Two or three sentences on how it works and why it exists.",
+  tech: ["TypeScript", "SQLite"],
+  year: 2026,
+  status: "Active",
+  github: "https://github.com/JarenKempton/my-thing",
+  featured: true,
+},
+```
+
+`featured: true` puts it in the main grid, even if a story also uses it; leave it off to list it under "More projects" (or only in its story). `url` and `github` are optional, so omit them for private work. `builtOn: [{ name, url }]` credits the upstream projects it extends.
+
+### Adding a story
+
+Stories live in `src/lib/stories.ts`: a real problem, what you did about it, and the projects that came out of it (by `slug`). `links` adds related upstream projects. A project used in a story shows up there instead of the Projects grid.

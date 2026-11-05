@@ -13,7 +13,10 @@
 # testing
 /coverage
 
-# next.js
+# build output
+/.astro/
+/dist/
+/.wrangler/
 /.next/
 /out/
 
@@ -42,3 +45,5 @@ next-env.d.ts
 
 # AI directories
 .claude
+/playwright-report/
+/test-results/
