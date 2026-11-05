@@ -85,10 +85,10 @@ export const experiences: Experience[] = [
       { title: "Technology Specialist", period: "Sep 2024 — Oct 2025" },
     ],
     highlights: [
-      "Automated processing of 100+ weekly emails and texts with Google Apps Script.",
-      "Maintained Rust software analyzing 1,000+ records weekly, and supported 150+ volunteers.",
+      "Hand-built, before AI tools, a TypeScript and Google Maps API tool on Apps Script that planned the mission president's interviews every 6 weeks with the least travel, routing companionships with cars to pick up those without.",
+      "Supported 150+ missionaries' phones, including a mission-wide SIM card swap and short-notice repairs; maintained Rust software analyzing 1,000+ records weekly and automated 100+ weekly emails and texts.",
     ],
-    tech: ["Rust", "Google Apps Script"],
+    tech: ["TypeScript", "Google Maps API", "Google Apps Script", "Rust"],
   },
   {
     company: "ResponsiBid",
