@@ -1,5 +1,6 @@
 import { ExtLink } from "@/components/term/ext-link";
 import { storyProjects, type Story } from "@/lib/data";
+import { StoryTimeline } from "./story-timeline";
 import { ProjectPanel } from "./project-panel";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
@@ -27,6 +28,9 @@ export function StoryEntry({ story }: { story: Story }) {
           <dl className="mt-4 space-y-3">
             <Field label="Problem">{story.problem}</Field>
             <Field label="What I did">{story.solution}</Field>
+            <Field label="Timeline">
+              <StoryTimeline timeline={story.timeline} />
+            </Field>
             {story.links && story.links.length > 0 && (
               <Field label="See also">
                 <span className="flex flex-wrap gap-x-5">
