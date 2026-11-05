@@ -67,9 +67,11 @@ export function Experience() {
                         {exp.company}
                       </p>
                     )}
-                    <p className="mb-3 text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                      {exp.description}
-                    </p>
+                    <ul className="mb-3 list-disc space-y-1.5 pl-4 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                      {exp.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
                     {exp.tech.length > 0 && (
                       <div className="flex flex-wrap gap-1.5">
                         {exp.tech.map((tech) => (
