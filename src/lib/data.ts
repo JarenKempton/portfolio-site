@@ -6,7 +6,7 @@ export type { Story } from "./stories";
 export const personalInfo = {
   name: "Jaren Kempton",
   title: "Senior Full Stack Engineer",
-  focus: "Developer Platform / AI Tooling",
+  focus: "Developer Experience, Platform & AI Tooling",
   tagline:
     "I build the platforms, MCP servers and CI guardrails that let AI agents do useful work in real codebases.",
   email: "hello@jarenkempton.dev",
@@ -17,7 +17,7 @@ export const personalInfo = {
 } as const;
 
 export const aboutBio = [
-  "Most of my work sits underneath other people's work: the knowledge service agents search, the conventions CI enforces, the component library every app shares. I like making a messy system smaller and easier to change, and I measure whether it actually got better.",
+  "Most of my work sits underneath other people's work: the knowledge service agents search, the conventions CI enforces, a shared component library. I like making a messy system smaller and easier to change, and I measure whether it actually got better.",
   "Lately that mostly means AI agents: giving them good context to search, conventions CI can enforce, and evals that show whether a change actually helped. The same things make a codebase easier for the people working in it.",
 ];
 
@@ -59,29 +59,29 @@ export const experiences: Experience[] = [
     note: "Part-time",
     current: true,
     highlights: [
-      "Interviewed everyone in product and engineering to map friction in the product pipeline, then drafted solutions and drove them into general adoption.",
-      "Own architecture and the MCP layer for the resulting pipeline app. Brought a fast-growing codebase back under control, consolidating 5 backend layers into 1 and deleting 60k+ lines without pausing feature delivery.",
-      "Encoded the architecture into CI-enforced conventions and automated sweeps, so AI-assisted feature work lands close to the target design without manual guidance, at ~20 merged PRs a day.",
-      "Own the company knowledge service that serves docs, code, Jira and business metrics to AI agents over MCP. Cut search p95 4× (27.6 s → 6.7 s), then designed a BM25 + vector + reranking pipeline benchmarked at ~70% better ranking on held-out real queries.",
-      "Built a retrieval eval from 1,500+ logged production queries with a held-out split and bootstrap confidence intervals. It caught the live vector index returning only 37% of true neighbors and ruled out a larger embedding model whose gain wasn't significant.",
+      "Interviewed every developer, designer, and product and project manager, and analyzed 12 months of Jira and deploy data, to find why the product shipped slowly and with bugs: context was lost between product, design and engineering, with no QA gate.",
+      "Co-designed with the CEO and architected the cross-functional product pipeline built to fix it: locked scope and decisions, public questions with owner-locked answers, and QA gates from epic to release; 21 projects launched through it. Leading the backend re-architecture, consolidating logic from edge functions, raw SQL and route handlers into one typed action layer (283 actions across 18 domains) that serves the UI, API and MCP tools with permissions defined once, plus release-time migrations and a 201-test harness.",
+      "Created and solely own the company knowledge service that answers code, business-logic and customer questions for agents over MCP. Gave an AI agent a sandbox, held-out evals and dedicated compute to optimize search on its own: it cut p95 latency 4x (27.6 s → 6.7 s) and built a hybrid search with ~70% better ranking on labeled real queries, shadow-tested beside production for 5 days before cutover.",
+      "Encoded the architecture as CI-enforced conventions and moved heavy CI to self-hosted runners; authored or merged ~30 PRs per weekday (690 in 30 days), mostly AI-assisted.",
+      "Sole creator of a durable Temporal workflow that turns Sentry errors into reviewed fix PRs and reviews non-engineers' PRs against the architecture to prevent sprawl; auto-merge of validated fixes is in testing.",
     ],
-    tech: ["TypeScript", "MCP", "PostgreSQL", "GitHub Actions"],
+    tech: ["TypeScript", "MCP", "PostgreSQL", "Drizzle", "Temporal", "GitHub Actions"],
   },
   {
     company: "SalesAi",
     roles: [{ title: "Full Stack Developer", period: "Feb 2026 — Oct 2026" }],
     url: "https://salesai.com",
     highlights: [
-      "Built the shared React component library for every frontend app, kept in sync with the design team's Figma system so the product ships one consistent UI.",
-      "Hardened credential storage across 3 services and every environment with zero downtime.",
-      "Expanded a voice-only sales platform to SMS for every customer and added Commio as a second phone provider, opening the platform to customers already committed to it.",
+      "Consolidated duplicated frontend and admin components into one React 19 / Base UI library (40+ components) realigned to the Figma design system; built a Figma export plugin and token generator, and prototyped drift checks and design-to-code PR sync.",
+      "Hardened security by migrating Twilio credentials to AES-256-GCM encrypted storage across 3 services and 5 environments via dual writes and verified backfill.",
+      "Added SMS to a voice-first workflow builder; built setup, number management and rollout for Commio as a second phone provider.",
     ],
-    tech: ["React", "TypeScript", "Storybook", "Figma"],
+    tech: ["React", "TypeScript", "Base UI", "Storybook", "Figma"],
   },
   {
     company: "The Church of Jesus Christ of Latter-day Saints",
     roles: [
-      { title: "Missionary", period: "Oct 2023 — Oct 2025" },
+      { title: "Full-time Volunteer Missionary", period: "Oct 2023 — Oct 2025" },
       { title: "Technology Specialist", period: "Sep 2024 — Oct 2025" },
     ],
     highlights: [
@@ -98,18 +98,10 @@ export const experiences: Experience[] = [
       { title: "Developer Intern", period: "May 2021 — Jul 2021" },
     ],
     highlights: [
-      "Worked heavily in the legacy CakePHP platform while helping build its TypeScript replacement in React/Next.js and NestJS GraphQL.",
+      "Worked in the legacy PHP (CakePHP) and MySQL platform, including production migrations and debugging, while helping build its TypeScript replacement in React/Next.js and NestJS GraphQL.",
       "Helped introduce TDD in an Agile team, raising test coverage in a 1.2M-line codebase from 0% to 24%.",
     ],
-    tech: ["CakePHP", "React", "Next.js", "NestJS", "GraphQL", "Jest"],
-  },
-  {
-    company: "Independent",
-    roles: [{ title: "Self-Taught Developer", period: "2020 — 2021" }],
-    highlights: [
-      "Discovered a passion for building things with code. Spent time learning vanilla JavaScript, HTML/CSS, Python, Java, and Arduino C++ through personal projects and experimentation — building everything from web pages to hardware prototypes.",
-    ],
-    tech: ["JavaScript", "HTML/CSS", "Python", "Java", "Arduino", "C++"],
+    tech: ["CakePHP", "MySQL", "React", "Next.js", "NestJS", "GraphQL"],
   },
 ];
 
@@ -120,20 +112,20 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "AI & agent tooling",
-    skills: ["Claude Code", "MCP servers", "Agent guardrails", "Hybrid RAG", "Retrieval evals"],
+    name: "AI & agents",
+    skills: ["MCP (Model Context Protocol) servers", "AI agents", "LLM tool calling", "Agent and retrieval evals", "Hybrid RAG (BM25 + vector + reranking)", "Agent guardrails", "Claude Code", "Hermes"],
   },
   {
     name: "Developer platform",
-    skills: ["GitHub Actions", "CI/CD gating", "Playwright", "Vitest", "Docker", "Sentry", "Datadog"],
+    skills: ["CI/CD", "GitHub Actions", "Self-hosted runners", "Internal tools", "Docker", "GCP", "Cloudflare Workers", "Vercel", "Temporal", "Playwright", "Vitest", "TDD", "Observability (Sentry, Datadog)"],
   },
   {
     name: "Backend",
-    skills: ["TypeScript", "Node.js", "Hono", "NestJS", "PostgreSQL", "Supabase", "Drizzle", "tRPC"],
+    skills: ["TypeScript", "JavaScript", "Node.js", "Bun", "Hono", "NestJS", "REST APIs", "GraphQL", "tRPC", "Event-driven systems", "Message queues", "Webhooks", "Background jobs", "PostgreSQL", "MySQL", "SQL", "Supabase", "Drizzle"],
   },
   {
     name: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "Base UI", "MUI", "Storybook"],
+    skills: ["React", "Next.js", "HTML/CSS", "Tailwind CSS", "Storybook", "Design systems", "Base UI", "MUI"],
   },
 ];
 

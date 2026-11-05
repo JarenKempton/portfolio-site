@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "Quench",
     tagline: "See what your coding agents load, what it costs, and where they go wrong.",
     description:
-      "Reads the session history Claude Code, Codex and Pi already keep on disk and reports how much context each session starts with, how it grows, which models and effort levels you use, and how each run went. Ships as a single binary for Linux and macOS. Nothing leaves your machine unless you opt in.",
+      "Profiles coding-agent sessions to show why agents get corrected, ranks bloated or conflicting instructions and skills, and scans session history and local files for leaked secrets, including files npm worms target.",
     tech: ["TypeScript", "Bun", "SQLite"],
     year: 2026,
     status: "Active",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     title: "Interlock",
     tagline: "Claim a ticket, get a worktree, hand it to an agent.",
     description:
-      "A CLI that claims a Jira ticket, prepares its Git worktree and returns what a T3 Code thread needs to launch an agent lane on it. Credentials live in the OS keychain, and a doctor command names exactly which sign-in, permission or push access is missing.",
+      "TypeScript/Bun CLI that claims unblocked Jira tickets and prepares each as an isolated AI-agent lane (Git worktree on a local or remote host); Linear, GitHub Issues and Docker Sandbox support in progress.",
     tech: ["TypeScript", "Bun", "Jira"],
     year: 2026,
     status: "In development",

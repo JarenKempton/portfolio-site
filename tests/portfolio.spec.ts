@@ -70,3 +70,16 @@ test("www redirects to the canonical host without losing paths or query strings"
     expect(response.headers().location).toBe(`https://jarenkempton.dev${path}`);
   }
 });
+
+test("five quick photo clicks open the computer desktop, and its menubar leads back to the terminal", async ({ page }) => {
+  await page.goto("/");
+  const photo = page.getByRole("img", { name: "Jaren Kempton" });
+  for (let click = 0; click < 4; click++) await photo.click();
+  await expect(page).toHaveURL(/\/$/);
+  await photo.click();
+  await expect(page).toHaveURL(/\/computer\/?$/);
+  await expect(page.getByRole("heading", { name: "Read Me" })).toBeVisible();
+  await page.getByRole("link", { name: "← Terminal" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jaren Kempton");
+});
