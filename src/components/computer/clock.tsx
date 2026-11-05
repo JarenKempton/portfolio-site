@@ -10,10 +10,15 @@ function now() {
   const date = new Date();
   const day = date.toLocaleDateString("en-US", { weekday: "short" });
   const time = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
-  return `${day} ${time}`;
+  return `${day}|${time}`;
 }
 
 export function Clock() {
-  const label = useSyncExternalStore(subscribe, now, () => "");
-  return <span className="menu-item tabular-nums">{label}</span>;
+  const [day, time] = useSyncExternalStore(subscribe, now, () => "|").split("|");
+  return (
+    <span className="menu-item tabular-nums">
+      <span className="hidden sm:inline">{day} </span>
+      {time}
+    </span>
+  );
 }
